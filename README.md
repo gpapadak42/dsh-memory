@@ -20,6 +20,21 @@ new session:
 | Tools | `ctx.tools.register(defineTool({...}))` on the shared tool registry, so the tools appear in every agent (including subagents). |
 | Scope | `global` shares one memory across all sessions and workspaces on the machine; `workspace` keys the store by `process.cwd()` at boot. |
 
+## Using it
+
+You never call the tools yourself — just tell the agent in plain words and it
+handles the rest (lookup, ids, tags, and the underlying store):
+
+| You say | The agent does |
+|---|---|
+| "remember that my name is George" | `memory_save` — persists the fact across sessions |
+| "what do you remember?" | `memory_recall` — shows the stored entries |
+| "forget the thing about X" | `memory_forget` — removes the matching entry |
+| "update the memory about X to say Y" | `memory_update` — edits the entry |
+
+Remembered facts are injected into every session's system prompt, so a new
+session already knows them without being told again.
+
 ## Install
 
 Any profile installs the plugin by package reference — no checkout needed:
