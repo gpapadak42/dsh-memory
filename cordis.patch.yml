@@ -1,0 +1,27 @@
+# dsh-memory bundle patch: one insert row mounting the persistent memory
+# plugin. Address this row by id (`memory`) from a later patch layer (the
+# profile's cordis.patch.yml or a --patch overlay) to override its config;
+# the last write per row wins, replacing the whole config object.
+#
+# Defaults below match the plugin's own Config defaults, stated here so the
+# composed tree shows the deployment's effective values.
+- insert:
+    - id: memory
+      name: dsh-memory
+      config:
+        # global: one store shared by every session on this machine.
+        # workspace: one store per workspace root (process.cwd() at boot).
+        scope: global
+        # Storage directory for the JSONL store. Resolved at runtime to
+        # ~/.dsh/memory when omitted.
+        storageRoot: !!js dshHomePath('memory')
+        # How many entries the injected system-prompt context may show.
+        maxInjectedMemories: 20
+        # How many entries memory_recall may return.
+        maxRecallResults: 10
+        # Per-entry byte cap enforced by memory_save / memory_update.
+        maxMemoryBytes: 4000
+        # Whether to inject the memory context into the system prompt.
+        injectContext: true
+        # Sort order of the memory context among runtime-context contributions.
+        contextOrder: 1000
