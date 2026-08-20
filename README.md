@@ -22,11 +22,11 @@ new session:
 
 ## Install (from npm)
 
-The plugin is published to the npm registry. Any profile installs it by
-package name — no checkout needed:
+The plugin is published to the npm registry as `@gpapadak42/dsh-memory`. Any
+profile installs it by package name — no checkout needed:
 
 ```sh
-dsh plugin --profile <name> add dsh-memory
+dsh plugin --profile <name> add @gpapadak42/dsh-memory
 ```
 
 `dsh plugin` runs pnpm in the profile directory and reconciles the profile's

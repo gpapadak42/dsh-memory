@@ -1,5 +1,5 @@
 {
-  "name": "dsh-memory",
+  "name": "@gpapadak42/dsh-memory",
   "version": "0.1.0",
   "description": "Persistent cross-session memory for the DeepSeek Harness: durable notes stored outside the session log, injected into every session's system prompt, with memory_save / memory_recall / memory_update / memory_forget tools.",
   "type": "module",

@@ -7,7 +7,7 @@
 # composed tree shows the deployment's effective values.
 - insert:
     - id: memory
-      name: dsh-memory
+      name: '@gpapadak42/dsh-memory'
       config:
         # global: one store shared by every session on this machine.
         # workspace: one store per workspace root (process.cwd() at boot).
