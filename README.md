@@ -20,10 +20,17 @@ new session:
 | Tools | `ctx.tools.register(defineTool({...}))` on the shared tool registry, so the tools appear in every agent (including subagents). |
 | Scope | `global` shares one memory across all sessions and workspaces on the machine; `workspace` keys the store by `process.cwd()` at boot. |
 
-## Install (from npm)
+## Install
 
-The plugin is published to the npm registry as `@gpapadak42/dsh-memory`. Any
-profile installs it by package name — no checkout needed:
+Any profile installs the plugin by package reference — no checkout needed:
+
+**From GitHub (public repo, works today):**
+
+```sh
+dsh plugin --profile <name> add github:gpapadak42/dsh-memory
+```
+
+**From npm (once `@gpapadak42/dsh-memory` is published):**
 
 ```sh
 dsh plugin --profile <name> add @gpapadak42/dsh-memory
