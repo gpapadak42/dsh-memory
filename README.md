@@ -24,16 +24,8 @@ new session:
 
 Any profile installs the plugin by package reference — no checkout needed:
 
-**From GitHub (public repo, works today):**
-
 ```sh
 dsh plugin --profile <name> add github:gpapadak42/dsh-memory
-```
-
-**From npm (once `@gpapadak42/dsh-memory` is published):**
-
-```sh
-dsh plugin --profile <name> add @gpapadak42/dsh-memory
 ```
 
 `dsh plugin` runs pnpm in the profile directory and reconciles the profile's
@@ -41,29 +33,6 @@ dsh plugin --profile <name> add @gpapadak42/dsh-memory
 `dsh.bundle.patch`, it joins the layer stack automatically. Then **restart the
 harness app for that profile**; the memory context and the four `memory_*`
 tools go live.
-
-## Install from this checkout (development)
-
-The plugin is installed as a **linked** dependency, so edits under the plugin
-checkout are live (no reinstall needed to iterate):
-
-```sh
-# 1. Install the plugin's own dependencies (once):
-cd E:\Deepseek\dsh-memory && pnpm install
-
-# 2. Link it into the web profile from anywhere:
-dsh plugin --profile web add link:E:/Deepseek/dsh-memory
-```
-
-- `dsh plugin` forwards to pnpm in the profile directory, then reconciles the
-  profile's `dsh.profile.bundles` layer list — the package declares
-  `dsh.bundle.patch`, so it joins the layer stack automatically.
-- A `link:` dependency keeps one live copy: edit
-  `E:\Deepseek\dsh-memory\lib\index.js`, and the next harness restart picks it
-  up. (A `file:` dependency would copy the package instead.)
-
-Then **restart the harness web app** (`dsh web`) so the new bundle is loaded.
-After restart, the memory context and the four `memory_*` tools are live.
 
 ## Override configuration
 
