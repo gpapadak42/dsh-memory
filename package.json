@@ -25,6 +25,17 @@
     "memory"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gpapadak42/dsh-memory.git"
+  },
+  "homepage": "https://github.com/gpapadak42/dsh-memory#readme",
+  "bugs": {
+    "url": "https://github.com/gpapadak42/dsh-memory/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@deepseek-ai/cordis": "4.0.1",
     "@deepseek-ai/dsh-home-paths": "0.1.0-rc.6",

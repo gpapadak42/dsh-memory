@@ -20,7 +20,22 @@ new session:
 | Tools | `ctx.tools.register(defineTool({...}))` on the shared tool registry, so the tools appear in every agent (including subagents). |
 | Scope | `global` shares one memory across all sessions and workspaces on the machine; `workspace` keys the store by `process.cwd()` at boot. |
 
-## Install (into the `web` profile, for the running GUI)
+## Install (from npm)
+
+The plugin is published to the npm registry. Any profile installs it by
+package name — no checkout needed:
+
+```sh
+dsh plugin --profile <name> add dsh-memory
+```
+
+`dsh plugin` runs pnpm in the profile directory and reconciles the profile's
+`dsh.profile.bundles` layer list: because the package declares
+`dsh.bundle.patch`, it joins the layer stack automatically. Then **restart the
+harness app for that profile**; the memory context and the four `memory_*`
+tools go live.
+
+## Install from this checkout (development)
 
 The plugin is installed as a **linked** dependency, so edits under the plugin
 checkout are live (no reinstall needed to iterate):
