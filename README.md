@@ -49,6 +49,14 @@ dsh plugin --profile <name> add github:gpapadak42/dsh-memory
 harness app for that profile**; the memory context and the four `memory_*`
 tools go live.
 
+> **Why peer dependencies:** this package declares its `@deepseek-ai` runtime
+> packages as `peerDependencies` (not `dependencies`), pinned to the versions
+> the harness ships. Profiles install with `autoInstallPeers: false`, so the
+> plugin shares the harness's own single module instances instead of pulling
+> duplicate copies into the profile — duplicates broke tool dispatch in 0.1.0
+> (see [`CHANGELOG.md`](CHANGELOG.md)). Keep peer pins in lockstep with the
+> harness's `@deepseek-ai` versions.
+
 ## Override configuration
 
 Defaults are set in the bundle's `cordis.patch.yml` (row id `memory`) and in
