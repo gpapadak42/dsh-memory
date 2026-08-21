@@ -1,6 +1,6 @@
 {
   "name": "@gpapadak42/dsh-memory",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Persistent cross-session memory for the DeepSeek Harness: durable notes stored outside the session log, injected into every session's system prompt, with memory_save / memory_recall / memory_update / memory_forget tools.",
   "type": "module",
   "main": "lib/index.js",
@@ -36,10 +36,11 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
+  "dependencies": {},
+  "peerDependencies": {
     "@deepseek-ai/cordis": "4.0.1",
-    "@deepseek-ai/dsh-home-paths": "0.1.0-rc.6",
-    "@deepseek-ai/dsh-tools": "0.1.0-rc.6",
+    "@deepseek-ai/dsh-home-paths": "0.1.1-rc.1",
+    "@deepseek-ai/dsh-tools": "0.1.1-rc.1",
     "@deepseek-ai/schemastery": "3.18.1"
   }
 }
